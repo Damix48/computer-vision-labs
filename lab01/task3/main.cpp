@@ -1,6 +1,8 @@
 #include <iostream>
 #include <opencv2/highgui.hpp>
 
+void checkboard(cv::Mat& image, int size);
+
 int main(int argc, char** argv) {
   int height = 256;
   int width = 256;
@@ -26,4 +28,7 @@ int main(int argc, char** argv) {
   std::cout << key << std::endl;
 
   return 0;
+}
+
+void checkboard(cv::Mat& image, int size) {
 }

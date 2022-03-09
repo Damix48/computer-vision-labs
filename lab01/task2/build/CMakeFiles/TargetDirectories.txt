@@ -1,3 +1,0 @@
-/home/damiano/Documents/computer-vision-labs/lab01/task2/build/CMakeFiles/lab01_task2.dir
-/home/damiano/Documents/computer-vision-labs/lab01/task2/build/CMakeFiles/edit_cache.dir
-/home/damiano/Documents/computer-vision-labs/lab01/task2/build/CMakeFiles/rebuild_cache.dir
