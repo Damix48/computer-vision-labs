@@ -41,32 +41,20 @@ int main(int argc, char** argv) {
 }
 
 void create_chessboard(cv::Mat& image, int size) {
-  bool alt_row = false;
-
   for (int i = 0; i < image.rows; i++) {
-    bool alt_col = false;
-
-    bool changerow = ((i % size) == 0);
-
-    if (changerow) {
-      alt_row = !alt_row;
-    }
-
-    if (alt_row) {
-      alt_col = true;
-    }
-
     for (int j = 0; j < image.cols; j++) {
-      bool changecol = (j % size) == 0;
-
-      if (changecol) {
-        alt_col = !alt_col;
-      }
-
-      if (alt_col) {
-        image.at<unsigned char>(i, j) = static_cast<unsigned char>(255);
+      if ((j / size) % 2 == 0) {
+        if ((i / size) % 2 == 0) {
+          image.at<unsigned char>(i, j) = 255;
+        } else {
+          image.at<unsigned char>(i, j) = 0;
+        }
       } else {
-        image.at<unsigned char>(i, j) = static_cast<unsigned char>(0);
+        if ((i / size) % 2 == 0) {
+          image.at<unsigned char>(i, j) = 0;
+        } else {
+          image.at<unsigned char>(i, j) = 255;
+        }
       }
     }
   }
