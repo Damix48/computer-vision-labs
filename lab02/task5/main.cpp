@@ -11,13 +11,13 @@ int main(int argc, char** argv) {
   cv::cvtColor(img, img_gray, cv::COLOR_BGR2GRAY);
 
   cv::Mat hist_img;
-  createHist(img_gray, hist_img, 64);
+  createHist(img_gray, hist_img, 256);
 
   cv::Mat img_gray_eq;
   cv::equalizeHist(img_gray, img_gray_eq);
 
   cv::Mat hist_img_eq;
-  createHist(img_gray_eq, hist_img_eq, 64);
+  createHist(img_gray_eq, hist_img_eq, 256);
 
   cv::namedWindow("Original", cv::WINDOW_NORMAL);
   cv::imshow("Original", img);
