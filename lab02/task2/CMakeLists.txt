@@ -9,5 +9,4 @@ add_library(filters src/filters.cpp include/filters.h)
 
 add_executable( main main.cpp)
 
-target_link_libraries( main ${OpenCV_LIBS} )
-target_link_libraries( main filters )
+target_link_libraries( main ${OpenCV_LIBS} filters )
