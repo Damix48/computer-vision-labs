@@ -15,7 +15,7 @@ void min_filter(cv::Mat src, cv::Mat& dst, int kernel_size) {
       u_char min = 255;
       for (int k = -kernel_size / 2; k < kernel_size / 2 + 1; k++) {
         for (int w = -kernel_size / 2; w < kernel_size / 2 + 1; w++) {
-          if ((i + k > 0) && (i + k < dst.rows) && (j + w > 0) && (j + k < dst.cols)) {
+          if ((i + k >= 0) && (i + k < dst.rows) && (j + w >= 0) && (j + k < dst.cols)) {
             u_char curr = src.at<u_char>(i + k, j + w);
             if (min > curr) {
               min = curr;
@@ -40,7 +40,7 @@ void max_filter(cv::Mat src, cv::Mat& dst, int kernel_size) {
       u_char max = 0;
       for (int k = -kernel_size / 2; k < kernel_size / 2 + 1; k++) {
         for (int w = -kernel_size / 2; w < kernel_size / 2 + 1; w++) {
-          if ((i + k > 0) && (i + k < dst.rows) && (j + w > 0) && (j + k < dst.cols)) {
+          if ((i + k >= 0) && (i + k < dst.rows) && (j + w >= 0) && (j + k < dst.cols)) {
             u_char curr = src.at<u_char>(i + k, j + w);
             if (max < curr) {
               max = curr;
