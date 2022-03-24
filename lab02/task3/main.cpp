@@ -19,11 +19,22 @@ int main(int argc, char** argv) {
   cv::medianBlur(img_gray, img_median, 3);
   cv::GaussianBlur(img_gray, img_gaussian, cv::Size(3, 3), 1.75);
 
+  cv::namedWindow("Original", cv::WINDOW_NORMAL);
   cv::imshow("Original", img);
+
+  cv::namedWindow("Gray", cv::WINDOW_NORMAL);
   cv::imshow("Gray", img_gray);
+
+  cv::namedWindow("Min filter", cv::WINDOW_NORMAL);
   cv::imshow("Min filter", img_min);
+
+  cv::namedWindow("Max filter", cv::WINDOW_NORMAL);
   cv::imshow("Max filter", img_max);
+
+  cv::namedWindow("Median filter", cv::WINDOW_NORMAL);
   cv::imshow("Median filter", img_median);
+
+  cv::namedWindow("Gaussian filter", cv::WINDOW_NORMAL);
   cv::imshow("Gaussian filter", img_gaussian);
 
   cv::waitKey(0);

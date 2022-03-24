@@ -14,9 +14,16 @@ int main(int argc, char** argv) {
   min_filter(img_gray, img_min, 3);
   max_filter(img_gray, img_max, 3);
 
+  cv::namedWindow("Original", cv::WINDOW_NORMAL);
   cv::imshow("Original", img);
+
+  cv::namedWindow("Gray", cv::WINDOW_NORMAL);
   cv::imshow("Gray", img_gray);
+
+  cv::namedWindow("Min filter", cv::WINDOW_NORMAL);
   cv::imshow("Min filter", img_min);
+
+  cv::namedWindow("Max filter", cv::WINDOW_NORMAL);
   cv::imshow("Max filter", img_max);
 
   cv::waitKey(0);
