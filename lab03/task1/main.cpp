@@ -7,7 +7,7 @@ int main(int argc, char** argv) {
   cv::namedWindow("Image");
   cv::imshow("Image", img);
 
-  int key = cv::waitKey(0);
+  cv::waitKey(0);
 
   return 0;
 }

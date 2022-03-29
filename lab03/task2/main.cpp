@@ -23,7 +23,7 @@ int main(int argc, char** argv) {
 
   cv::setMouseCallback("Image", onMouse, &img);
 
-  int key = cv::waitKey(0);
+  cv::waitKey(0);
 
   return 0;
 }
