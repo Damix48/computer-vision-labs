@@ -54,12 +54,32 @@ RGB kernelMean(cv::Mat& src, int x, int y, int kernelSize) {
   return mean;
 }
 
+void segmentImage(cv::Mat& src, cv::Mat& dst, RGB mean, int threshold) {
+  dst = cv::Mat::zeros(src.rows, src.cols, CV_8U);
+
+  for (int i = 0; i < dst.rows; i++) {
+    for (int j = 0; j < dst.cols; j++) {
+      RGB pixel(src.at<cv::Vec3b>(i, j));
+
+      if (pixel.isInThreshold(mean, threshold)) {
+        dst.at<u_char>(i, j) = 255;
+      }
+    }
+  }
+}
+
 void onMouse(int event, int x, int y, int, void* _img) {
   cv::Mat* img = static_cast<cv::Mat*>(_img);
 
   if (event == cv::EVENT_LBUTTONUP) {
     RGB mean = kernelMean(*img, x, y, 9);
     std::cout << "Color mean (9x9) around (" << x << ", " << y << "): " << mean << std::endl;
+
+    cv::Mat segmented;
+    segmentImage(*img, segmented, mean, 20);
+
+    cv::namedWindow("Segmented");
+    cv::imshow("Segmented", segmented);
   }
 }
 
