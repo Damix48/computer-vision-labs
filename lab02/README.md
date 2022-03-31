@@ -8,6 +8,7 @@ The program take 2 input: the RGB image path and the output gray-scale image pat
 This task was very easy. The program created convert a color image into a gray-scale image using `cv::cvtColor()` function provided by OpenCV.
 
 This is the result (the left image is the original, the right image is the gray-scale conversion):
+
 ![](assets/task1.jpg)
 
 ## Task 2
@@ -34,6 +35,7 @@ if ((i + k > 0) && (i + k < dst.rows) && (j + w > 0) && (j + k < dst.cols)) {
 ```
 
 The best result for removing the electric cable is using the max filter (in the left) and a kernel size of 5. The min filter (in the right) enhance the cable.
+
 ![](assets/task2.jpg)
 
 ## Task 3
@@ -45,6 +47,7 @@ The program take 1 input: the gray-scale image path.
 This task was very easy. The program create 4 images using 4 different filter: min, max, median (using `cv::medianBlur()`) and gaussian (using `cv::GaussianBlur()`).
 
 The results (top left: min filter; top right: max filter; bottom left: median filter; bottom right: gaussian filter):
+
 ![](assets/task3.jpg)
 
 # Task 4
@@ -56,6 +59,7 @@ The program take 1 input: the gray-scale image path.
 The program created generate an histogram using the function `cv::calcHist()` provided by OpenCV. The function is not very intuitive and there is needed some post-processing to obtain an actual histogram: using `cv::normalize()` in order to obtain result from 0 and the height of the histogram image. Then using `cv::rectangle()` for generating the bars of the histogram.
 
 This is the result with 256 bins:
+
 ![](assets/task4.jpg)
 
 # Task 5
@@ -65,7 +69,9 @@ The program take 1 input: the gray-scale image path.
 ```
 
 The program created generate an equalized version of the image in the input using `cv::equalizeHist()`:
+
 ![](assets/task5a.jpg)
 
 It also generate a histogram of the equalized image:
+
 ![](assets/task5b.jpg)
