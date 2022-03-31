@@ -9,8 +9,8 @@ int main(int argc, char** argv) {
   cv::Mat img_min;
   cv::Mat img_max;
 
-  min_filter(img_gray, img_min, 3);
-  max_filter(img_gray, img_max, 3);
+  min_filter(img_gray, img_min, 5);
+  max_filter(img_gray, img_max, 5);
 
   cv::namedWindow("Gray", cv::WINDOW_NORMAL);
   cv::imshow("Gray", img_gray);
