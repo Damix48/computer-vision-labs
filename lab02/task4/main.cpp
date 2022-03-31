@@ -3,10 +3,8 @@
 #include <opencv2/imgproc.hpp>
 
 int main(int argc, char** argv) {
-  cv::Mat img = cv::imread(argv[1]);
-  cv::Mat img_gray, histogram;
-
-  cv::cvtColor(img, img_gray, cv::COLOR_BGR2GRAY);
+  cv::Mat img_gray = cv::imread(argv[1], cv::IMREAD_GRAYSCALE);
+  cv::Mat histogram;
 
   cv::Mat hist;
 
@@ -33,9 +31,6 @@ int main(int argc, char** argv) {
         -1,
         8);
   }
-
-  cv::namedWindow("Original", cv::WINDOW_NORMAL);
-  cv::imshow("Original", img);
 
   cv::namedWindow("Gray", cv::WINDOW_NORMAL);
   cv::imshow("Gray", img_gray);

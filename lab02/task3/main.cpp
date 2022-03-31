@@ -5,22 +5,16 @@
 #include <opencv2/imgproc.hpp>
 
 int main(int argc, char** argv) {
-  cv::Mat img = cv::imread(argv[1]);
-  cv::Mat img_gray;
+  cv::Mat img_gray = cv::imread(argv[1], cv::IMREAD_GRAYSCALE);
   cv::Mat img_min;
   cv::Mat img_max;
   cv::Mat img_median;
   cv::Mat img_gaussian;
 
-  cv::cvtColor(img, img_gray, cv::COLOR_BGR2GRAY);
-
   min_filter(img_gray, img_min, 3);
   max_filter(img_gray, img_max, 3);
   cv::medianBlur(img_gray, img_median, 3);
   cv::GaussianBlur(img_gray, img_gaussian, cv::Size(3, 3), 1.75);
-
-  cv::namedWindow("Original", cv::WINDOW_NORMAL);
-  cv::imshow("Original", img);
 
   cv::namedWindow("Gray", cv::WINDOW_NORMAL);
   cv::imshow("Gray", img_gray);

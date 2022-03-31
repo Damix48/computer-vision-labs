@@ -5,10 +5,8 @@
 void createHist(cv::Mat src, cv::Mat& hist_img, int n_bins, int hist_w = 512, int hist_h = 400);
 
 int main(int argc, char** argv) {
-  cv::Mat img = cv::imread(argv[1]);
-  cv::Mat img_gray, histogram;
-
-  cv::cvtColor(img, img_gray, cv::COLOR_BGR2GRAY);
+  cv::Mat img_gray = cv::imread(argv[1], cv::IMREAD_GRAYSCALE);
+  cv::Mat histogram;
 
   cv::Mat hist_img;
   createHist(img_gray, hist_img, 256);
@@ -18,9 +16,6 @@ int main(int argc, char** argv) {
 
   cv::Mat hist_img_eq;
   createHist(img_gray_eq, hist_img_eq, 256);
-
-  cv::namedWindow("Original", cv::WINDOW_NORMAL);
-  cv::imshow("Original", img);
 
   cv::namedWindow("Gray", cv::WINDOW_NORMAL);
   cv::imshow("Gray", img_gray);
