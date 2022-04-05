@@ -17,13 +17,18 @@ void onTrackbarT2Updated(int pos, void* data) {
 }
 
 int main(int argc, char** argv) {
+  if (argc < 2) {
+    std::cout << "You need to pass a path to an image." << std::endl;
+    return EXIT_FAILURE;
+  }
+
   cv::Mat img = cv::imread(argv[1]);
 
   CannyImage image(img);
 
   cv::namedWindow("Image");
-  cv::createTrackbar("Canny threshold 1", "Image", 0, 200, onTrackbarT1Updated, &image);
-  cv::createTrackbar("Canny threshold 2", "Image", 0, 600, onTrackbarT2Updated, &image);
+  cv::createTrackbar("Canny threshold 1", "Image", nullptr, 200, onTrackbarT1Updated, &image);
+  cv::createTrackbar("Canny threshold 2", "Image", nullptr, 600, onTrackbarT2Updated, &image);
   cv::imshow("Image", img);
 
   cv::waitKey(0);
