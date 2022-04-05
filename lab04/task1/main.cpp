@@ -4,9 +4,16 @@
 
 #include "canny_image.h"
 
-void onTrackbarUpdated(int pos, void* data) {
+void onTrackbarT1Updated(int pos, void* data) {
   CannyImage* image = static_cast<CannyImage*>(data);
-  image->update();
+  image->setT1(pos);
+  cv::imshow("Image", image->update());
+}
+
+void onTrackbarT2Updated(int pos, void* data) {
+  CannyImage* image = static_cast<CannyImage*>(data);
+  image->setT2(pos);
+  cv::imshow("Image", image->update());
 }
 
 int main(int argc, char** argv) {
@@ -15,8 +22,8 @@ int main(int argc, char** argv) {
   CannyImage image(img);
 
   cv::namedWindow("Image");
-  cv::createTrackbar("Canny threshold 1", "Image", &image.threshold1, 200, onTrackbarUpdated, &image);
-  cv::createTrackbar("Canny threshold 2", "Image", &image.threshold2, 600, onTrackbarUpdated, &image);
+  cv::createTrackbar("Canny threshold 1", "Image", 0, 200, onTrackbarT1Updated, &image);
+  cv::createTrackbar("Canny threshold 2", "Image", 0, 600, onTrackbarT2Updated, &image);
   cv::imshow("Image", img);
 
   cv::waitKey(0);
