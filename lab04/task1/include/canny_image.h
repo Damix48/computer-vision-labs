@@ -1,6 +1,7 @@
 #ifndef CANNY_IMAGE_H
 #define CANNY_IMAGE_H
-#include <opencv2/highgui.hpp>
+
+#include <opencv2/core.hpp>
 
 class CannyImage {
   cv::Mat original;
@@ -15,4 +16,5 @@ class CannyImage {
 
   void update();
 };
+
 #endif  // CANNY_IMAGE_H
