@@ -8,7 +8,7 @@ void findStreetLineInThisParticularImage(const cv::Mat& src, cv::Mat& dst) {
   int tollearance = 3;
 
   if (dst.rows != src.rows && dst.cols != src.rows) {
-    dst = cv::Mat(src.rows, src.cols, CV_8U);
+    dst = cv::Mat::zeros(src.rows, src.cols, CV_8U);
   }
 
   cv::Mat x = cv::Mat::zeros(src.rows, src.cols, CV_8U);
@@ -17,8 +17,8 @@ void findStreetLineInThisParticularImage(const cv::Mat& src, cv::Mat& dst) {
   cv::Sobel(src, x, CV_8U, 1, 0);
   cv::Sobel(src, y, CV_8U, 0, 1);
 
-  for (int i = 0; i < dst.rows - 1; i++) {
-    for (int j = 0; j < dst.cols - 1; j++) {
+  for (int i = 0; i < dst.rows; i++) {
+    for (int j = 0; j < dst.cols; j++) {
       float dx = x.at<u_char>(i, j);
       float dy = y.at<u_char>(i, j);
       if (dx > 100 || dy > 100) {
