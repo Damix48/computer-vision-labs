@@ -60,7 +60,11 @@ int main(int argc, char** argv) {
     }
   }
 
-  cv::calibrateCamera(objectPoints, imagePoints, images[0].size(), cameraMatrix, distCoeffs, rvecs, tvecs);  //, stdDeviationsIntrinsics, stdDeviationsExtrinsics, perViewErrors);
+  cv::calibrateCamera(objectPoints, imagePoints, images[0].size(), cameraMatrix, distCoeffs, rvecs, tvecs, stdDeviationsIntrinsics, stdDeviationsExtrinsics, perViewErrors);
+
+  double meanReprojectionError = cv::mean(perViewErrors)[0];
+
+  std::cout << "Mean Reprojection Error: " << meanReprojectionError << std::endl;
 
   cv::initUndistortRectifyMap(cameraMatrix, distCoeffs, R, newCameraMatrix, images[0].size(), CV_32FC1, map1, map2);
 
