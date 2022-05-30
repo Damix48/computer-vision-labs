@@ -1,2 +1,6 @@
 build/
 debug/
+
+lab07/**/*.png
+lab07/**/*.bmp
+lab08/**/*.png
