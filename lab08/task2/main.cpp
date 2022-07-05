@@ -9,7 +9,7 @@
 int main(int argc, char** argv) {
   if (argc < 3) {
     std::cout << "USAGE:" << std::endl
-              << "main [folder of checkerboard images] [image for testing remap]" << std::endl;
+              << "main [folder of checkerboard image] [image for testing remap]" << std::endl;
     return EXIT_FAILURE;
   }
 
